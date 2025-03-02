@@ -1,0 +1,169 @@
+.contact-page {
+  padding-top: 80px;
+}
+
+.contact-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    #1a1a1a;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.contact-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.contact-hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.contact-content {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-info > p {
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.info-items {
+  display: grid;
+  gap: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.info-item svg {
+  font-size: 24px;
+  color: #007bff;
+}
+
+.info-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.info-item p {
+  color: #666;
+}
+
+.contact-form {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.submit-btn {
+  background: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.map-section {
+  height: 450px;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-hero {
+    height: 250px;
+  }
+
+  .contact-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-hero-content p {
+    font-size: 1rem;
+  }
+
+  .contact-content {
+    padding: 60px 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info h2,
+  .contact-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .info-items {
+    gap: 20px;
+  }
+
+  .contact-form {
+    padding: 30px;
+  }
+} 
