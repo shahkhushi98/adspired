@@ -12,7 +12,6 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [cursorPosition, setCursorPosition] = useState(0);
-  const [emailSent, setEmailSent] = useState(false);
   const [contactFormSent, setContactFormSent] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -268,100 +267,6 @@ ${formData.message}
                 animationDelay={index * 100}
               />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pricing-cta">
-        <div className="container">
-          <div className="pricing-grid">
-            <div className="pricing-content" data-aos="fade-right">
-              <h2>Free Social Media Audit?</h2>
-            </div>
-            <div className="email-form" data-aos="fade-left">
-              <div className="email-box">
-                {!emailSent ? (
-                  <>
-                    <input 
-                      type="email" 
-                      placeholder="Enter your email for the free audit"
-                      className="email-input"
-                      onChange={(e) => {
-                        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
-                        e.target.classList.toggle('valid', isValid);
-                        const button = e.target.nextElementSibling;
-                        if (button) {
-                          button.disabled = !isValid;
-                          if (isValid) {
-                            button.setAttribute('data-email', e.target.value);
-                          }
-                        }
-                      }}
-                    />
-                    <button 
-                      className="primary-btn" 
-                      disabled
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const userEmail = e.target.getAttribute('data-email');
-                        if (userEmail) {
-                          const emailBody = `
-Hello,
-
-I would like to request a free social media audit for my business.
-
-Contact Details:
-Email: ${userEmail}
-
-I'm interested in understanding how to improve my social media presence and would appreciate your expert analysis.
-
-Looking forward to your response.
-
-Thank you!`.trim();
-
-                          const mailtoLink = `mailto:shahkhushi2202@gmail.com?subject=${encodeURIComponent('Request for Free Social Media Audit')}&body=${encodeURIComponent(emailBody)}`;
-
-                          try {
-                            // Method 1: Try using window.location.href
-                            window.location.href = mailtoLink;
-                            
-                            // Set a timeout to check if the email client opened
-                            setTimeout(() => {
-                              // Method 2: If Method 1 failed, try creating and clicking a link
-                              const link = document.createElement('a');
-                              link.href = mailtoLink;
-                              document.body.appendChild(link);
-                              link.click();
-                              document.body.removeChild(link);
-                              
-                              // Method 3: If both methods failed, provide a fallback
-                              setTimeout(() => {
-                                alert('If your email client did not open, please email us directly at shahkhushi2202@gmail.com');
-                                // Copy email content to clipboard as a fallback
-                                navigator.clipboard.writeText(emailBody).then(() => {
-                                  alert('Email content has been copied to your clipboard for convenience.');
-                                });
-                              }, 1000);
-                            }, 1000);
-                          } catch (error) {
-                            console.error('Error sending email:', error);
-                            alert('Please email us directly at shahkhushi2202@gmail.com');
-                          }
-                          
-                          setEmailSent(true);
-                        }
-                      }}
-                    >
-                      Get Free Audit
-                    </button>
-                  </>
-                ) : (
-                  <div className="success-message">
-                    <p>Thank you! We'll send your audit details shortly.</p>
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </div>
       </section>

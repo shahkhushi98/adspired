@@ -17,7 +17,7 @@ const About = () => {
           <h2>Who We Are</h2>
           <div className="content-text">
             <p className="lead">
-              At Adspired, we're more than just a digital marketing agency – we're your partners in digital transformation and growth.
+            At Adspired, we’re here to make your business stand out in a crowded world. With over 4 years of hands-on experience in marketing and social media, we’ve seen firsthand the power of giving back and building connections.
             </p>
             <p>
               We leverage advanced AI and data-driven strategies to create impactful content, engaging campaigns, and a stronger online presence for your brand. Our approach combines innovative technology with creative expertise to deliver measurable results.
