@@ -32,20 +32,6 @@ const Footer = () => {
             Transform your digital presence with our innovative marketing solutions.
             Let's grow your business together.
           </p>
-          <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faTwitter} />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-          </div>
         </div>
 
         <div className="footer-section">

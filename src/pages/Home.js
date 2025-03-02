@@ -74,8 +74,47 @@ const Home = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:shahkhushi2202@gmail.com?subject=New Project Inquiry&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AService: ${formData.service}%0D%0AMessage: ${formData.message}`;
-    window.open(mailtoLink);
+    
+    // Format the email body with proper line breaks
+    const emailBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Service: ${formData.service}
+
+Message:
+${formData.message}
+    `.trim();
+
+    // Create the mailto link with proper encoding
+    const mailtoLink = `mailto:shahkhushi2202@gmail.com?subject=${encodeURIComponent('New Project Inquiry')}&body=${encodeURIComponent(emailBody)}`;
+
+    try {
+      // Method 1: Try using window.location.href
+      window.location.href = mailtoLink;
+      
+      // Set a timeout to check if the email client opened
+      setTimeout(() => {
+        // Method 2: If Method 1 failed, try creating and clicking a link
+        const link = document.createElement('a');
+        link.href = mailtoLink;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Method 3: If both methods failed, provide a fallback
+        setTimeout(() => {
+          alert('If your email client did not open, please email us directly at shahkhushi2202@gmail.com');
+          // Copy email content to clipboard as a fallback
+          navigator.clipboard.writeText(emailBody).then(() => {
+            alert('Email content has been copied to your clipboard for convenience.');
+          });
+        }, 1000);
+      }, 1000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Please email us directly at shahkhushi2202@gmail.com');
+    }
+    
     setFormData({
       name: '',
       email: '',
@@ -256,9 +295,11 @@ const Home = () => {
                         const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
                         e.target.classList.toggle('valid', isValid);
                         const button = e.target.nextElementSibling;
-                        button.disabled = !isValid;
-                        if (isValid) {
-                          button.setAttribute('data-email', e.target.value);
+                        if (button) {
+                          button.disabled = !isValid;
+                          if (isValid) {
+                            button.setAttribute('data-email', e.target.value);
+                          }
                         }
                       }}
                     />
@@ -266,10 +307,54 @@ const Home = () => {
                       className="primary-btn" 
                       disabled
                       onClick={(e) => {
+                        e.preventDefault();
                         const userEmail = e.target.getAttribute('data-email');
-                        const mailtoLink = `mailto:shahkhushi2202@gmail.com?subject=Request for Free Social Media Audit&body=Hi, I would like to request a free social media audit for my business.%0D%0A%0D%0AMy email address is: ${userEmail}`;
-                        window.open(mailtoLink);
-                        setEmailSent(true);
+                        if (userEmail) {
+                          const emailBody = `
+Hello,
+
+I would like to request a free social media audit for my business.
+
+Contact Details:
+Email: ${userEmail}
+
+I'm interested in understanding how to improve my social media presence and would appreciate your expert analysis.
+
+Looking forward to your response.
+
+Thank you!`.trim();
+
+                          const mailtoLink = `mailto:shahkhushi2202@gmail.com?subject=${encodeURIComponent('Request for Free Social Media Audit')}&body=${encodeURIComponent(emailBody)}`;
+
+                          try {
+                            // Method 1: Try using window.location.href
+                            window.location.href = mailtoLink;
+                            
+                            // Set a timeout to check if the email client opened
+                            setTimeout(() => {
+                              // Method 2: If Method 1 failed, try creating and clicking a link
+                              const link = document.createElement('a');
+                              link.href = mailtoLink;
+                              document.body.appendChild(link);
+                              link.click();
+                              document.body.removeChild(link);
+                              
+                              // Method 3: If both methods failed, provide a fallback
+                              setTimeout(() => {
+                                alert('If your email client did not open, please email us directly at shahkhushi2202@gmail.com');
+                                // Copy email content to clipboard as a fallback
+                                navigator.clipboard.writeText(emailBody).then(() => {
+                                  alert('Email content has been copied to your clipboard for convenience.');
+                                });
+                              }, 1000);
+                            }, 1000);
+                          } catch (error) {
+                            console.error('Error sending email:', error);
+                            alert('Please email us directly at shahkhushi2202@gmail.com');
+                          }
+                          
+                          setEmailSent(true);
+                        }
                       }}
                     >
                       Get Free Audit
