@@ -1,11 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-  faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/images/ADS_transparent.png';
 import '../styles/Footer.css';
 

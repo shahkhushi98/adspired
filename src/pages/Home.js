@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
 import Navbar from '../components/Navbar';
 import ServiceCard from '../components/ServiceCard';
 import { services } from '../data/services';
@@ -23,11 +22,7 @@ const Home = () => {
   });
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-
+    // AOS is already initialized in index.js
     const typeText = async () => {
       const currentService = servicesTitles[currentIndex];
       

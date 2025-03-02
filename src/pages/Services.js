@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import '../styles/Services.css';
 
@@ -11,13 +10,6 @@ const Services = () => {
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -85,8 +77,8 @@ ${formData.message}
       <Navbar />
       <section className="services-hero">
         <div className="services-hero-content">
-          <h1 data-aos="fade-up">Our Services</h1>
-          <p data-aos="fade-up" data-aos-delay="200">
+          <h1>Our Services</h1>
+          <p>
             Comprehensive digital marketing solutions tailored to your business needs
           </p>
         </div>
@@ -95,7 +87,7 @@ ${formData.message}
       <section className="services-main">
         <div className="container">
           <div className="services-grid">
-            <div id="seo" className="service-item" data-aos="fade-up">
+            <div id="seo" className="service-item">
               <div className="service-icon">🔍</div>
               <h3>SEO Optimization</h3>
               <p>Boost your search rankings and drive organic traffic with our expert SEO services.</p>
@@ -107,7 +99,7 @@ ${formData.message}
               </ul>
             </div>
 
-            <div id="social" className="service-item" data-aos="fade-up" data-aos-delay="100">
+            <div id="social" className="service-item">
               <div className="service-icon">📱</div>
               <h3>Social Media Marketing</h3>
               <p>Build a strong social presence and engage with your target audience effectively.</p>
@@ -119,7 +111,7 @@ ${formData.message}
               </ul>
             </div>
 
-            <div id="content" className="service-item" data-aos="fade-up" data-aos-delay="200">
+            <div id="content" className="service-item">
               <div className="service-icon">✍️</div>
               <h3>Content Marketing</h3>
               <p>Create compelling content that resonates with your audience and drives results.</p>
@@ -131,7 +123,7 @@ ${formData.message}
               </ul>
             </div>
 
-            <div id="ppc" className="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div id="ppc" className="service-item">
               <div className="service-icon">📊</div>
               <h3>PPC Advertising</h3>
               <p>Drive immediate results with targeted paid advertising campaigns.</p>
@@ -142,7 +134,7 @@ ${formData.message}
                 <li>Performance Tracking</li>
               </ul>
             </div>
-            <div id="ai" className="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div id="ai" className="service-item">
               <img 
                 src="https://img.icons8.com/fluency/96/design.png"
                 alt="AI-Powered Marketing"
@@ -150,7 +142,7 @@ ${formData.message}
               />
               <h3>AI-Powered Marketing</h3>
             </div>
-            <div id="cc" className="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div id="cc" className="service-item">
               <img 
                 src="https://img.icons8.com/fluency/96/design.png"
                 alt="Influencer & Content Creation"
@@ -164,7 +156,7 @@ ${formData.message}
 
       <section id="contact" className="cta-section">
         <div className="container">
-          <div className="cta-content" data-aos="fade-up">
+          <div className="cta-content">
             <h2>Ready to Transform Your Digital Presence?</h2>
             <p>Let's create a customized digital marketing strategy for your business.</p>
             {!formSubmitted ? (
