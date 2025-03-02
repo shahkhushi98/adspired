@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import Navbar from '../components/Navbar';
 import ServiceCard from '../components/ServiceCard';

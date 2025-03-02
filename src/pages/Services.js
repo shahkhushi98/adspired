@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import Navbar from '../components/Navbar';
 import '../styles/Services.css';
@@ -11,13 +10,6 @@ const Services = () => {
       once: true,
     });
   }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <div className="services-page">
