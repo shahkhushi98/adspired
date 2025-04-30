@@ -56,7 +56,7 @@ const Footer = () => {
             <li>Email: shahkhushi2202@gmail.com</li>
           </ul>
           <ul>
-            <li>Phone: +91 9106135745</li>
+            <li>Phone: +91 91061 35745</li>
           </ul>
         </div>
       </div>
